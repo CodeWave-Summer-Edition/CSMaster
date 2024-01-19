@@ -1,5 +1,6 @@
 # Section2. 선형 자료구조(배열)
 ## 0. 자료의 저장 방식
+그림속 오타 수정 (10 -> 6)
 ![dataSave](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/7309d9bb-a293-4c9c-a849-8b51ec281df8)
 
 ## 1. 배열
