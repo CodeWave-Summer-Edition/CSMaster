@@ -19,7 +19,7 @@
 <details>
   <summary>답</summary>
   <br>
-  <i>TCP에서 데이터를 전송하기 전 <code>수신자와 송신자 간 연결을 설정하는 과정</code></i>
+  <i><code>TCP</code>에서 데이터를 전송하기 전 <code>수신자와 송신자 간 연결을 설정하는 과정</code></i>
   <br><br>
   <b>1. Client → Server <code>[SYN]</code></b>
   <p>클라이언트가 서버에게 <code>통신을 시작하기 위한 요청</code>을 보내며 SYN flag 가 설정된 패킷을 보낸다.<br>
