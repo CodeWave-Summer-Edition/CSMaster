@@ -1,0 +1,278 @@
+# Section5_비선형_자료구조(Heap,PriorityQueue,Map,Set)
+## Heap이란?
+1. 힙은 모든 노드들이 특정 규칙을 만족하는 완전 이진트리 기반의 자료구조
+2. 종류는 최대힙과 최소힙이 존재한다.
+
+### 최대힙
+**모든 노드는 자신의 자식들을 루트로 하는 서브트리의 노드들보다 우선순위가 높거나 같아야 한다**
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/96067a4d-8086-483a-b833-915f5cb6a452)
+
+모든 노드를 중심으로, 좌, 우의 서브트리의 값보다 우선순위가 높거나 같고, 이 규칙이 재귀적으로 적용되어야 한다.
+
+### 최소힙
+**모든 노드는 자신의 자식들을 루트로 하는 서브트리의 노드들보다 우선순위가 낮거나 같아야 한다**
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/7911e4d3-bed9-4bc9-95a8-d917754e3cfa)
+
+모든 노드를 중심으로, 좌, 우의 서브트리의 값보다 우선순위가 낮거나 같고, 이 규칙이 재귀적으로 적용되어야 한다.
+
+### 0.구조
+완전 이진트리 기반의 자료구조기 때문에, 보통 인덱싱을 편하게 하기위해 배열을 사용하여 구현함.
+- 여기서 설명은 최대힙을 기준으로 설명.
+- 배열을 이용하게 된다면, 1번 인덱스부터 시작함.
+- 이렇게 해야 자식, 부모로의 이동이 편해짐
+```
+자식 = 현재노드의 인덱스 * 2 or 현재노드의 인덱스 * 2 + 1
+부모 = 현재노드의 인덱스 / 2
+```
+- 이럴때, 0번째 인덱스의 낭비를 막기위해 본인은 size를 저장해둠.
+```java
+class Heap{
+    private int[] heap = new int[1000000];//동적 배열 구현 귀찮아서 임시로 큰 배열 선언
+}
+```
+
+### 1. 삽입
+1. 완전 이진트리의 끝 노드에 데이터를 삽입함
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/3045f39b-ddce-4bb0-806a-1099e8a53355)
+
+
+2. 삽입된 노드와 부모를 비교해가며 우선순위가 높은 노드를 부모로 설정
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/fee339c4-c963-4ba6-aa4c-975cf9d61bf5)
+
+
+3. 루트노드 혹은 2번의 기준을 만족할때까지 재귀적으로 반복함
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/83ead76d-6ddc-4fa2-8496-4423f813fbbc)
+
+### 코드
+
+```java
+public void insert(int data) {
+    int child = ++this.heap[0];//완전 이진트리의 특징 및 1번부터 사용하는 heap의 특징을 이용해서, 삽입될 index를 구함
+    this.heap[child] = data;//해당 index에 data를 삽입
+
+    int parent = child / 2;//삽입된 노드의 부모 인덱스를 구함
+    while (child != 1) {//루트노드에 도달하기 전까지 반복
+        int pValue = this.heap[parent];//부모 값
+        int cValue = this.heap[child];//자식 값
+
+        if (pValue < cValue) {//자식의 값이 부모보다 크다면
+            //부모와 자식의 값을 변경함
+            this.heap[parent] = cValue;
+            this.heap[child] = pValue;
+            //부모 자식의 인덱스를 재설정해줌
+            child = parent;
+            parent = child / 2;
+        } else {//부모의 값이 더 크다면
+            break;//그 위의 트리는 heap의 조건을 만족하기 때문에 더이상 진행하지 않아도 됨
+        }
+    }
+}
+```
+
+### 2. 최댓값 찾기
+최댓값은 힙의 특징으로 인해, 가장 루트노드 (구현상 1번 인덱스)의 값이 최댓값이 된다.
+```java
+public int peek(){
+    if(this.heap[0] == 0){//size가 0이라면, 힙에 든게 없으므로 error
+        throw new IllegalStateException("힙에 든게 없어용");
+    }
+    return this.heap[1];
+}
+```
+
+### 3. 삭제
+1. 가장 큰 값(가장 루트노드)를 return해주기 위해 변수에 저장한다.
+2. 완전 이진트리의 가장 끝 노드를 루트로 올린다.
+3. 루트에서부터 시작하여 자식과 우선순위를 비교하며 힙의 조건을 충족시킬때 까지, 혹은 리프노드에 도달할때 까지 자식과 교환을 하며 반복함.
+```java
+public int remove(){
+    if(this.heap[0] == 0){
+        throw new IllegalStateException("힙에 든게 없어용");
+    }
+    
+    int result = this.heap[1];//루트노드의 값을 뽑아냄
+    this.heap[1] = this.heap[this.heap[0]--];//마지막 노드를 루트노드로 올림
+    
+    int parent = 1;//부모 인덱스 
+    int child = parent*2;//자식 인덱스
+    while(child <= this.heap[0]){//자식인덱스가 완전 이진트리 범위안에 존재할때까지 반복
+        //부모 자식의 값 추출
+        int pValue = this.heap[parent];
+        int cValue = this.heap[child];
+        
+        if(child+1 <=this.heap[0] && cValue < this.heap[child+1]){//만약, 자식 노드의 형제노드가 존재하고, 형제노드가 더 크다면, 더 큰걸로 비교하기 위해 값을 변경
+            child++;
+            cValue = this.heap[child];
+        }
+        
+        if(cValue > pValue){//자식값이 더 크다면 변경해줘야함
+            this.heap[parent] = cValue;
+            this.heap[child] = pValue;
+            
+            //인덱스 재설정
+            parent = child;
+            child = parent*2;
+        }
+        else{//아니라면, 하위 서브트리는 모두 힙을 만족하고있기 때문에 break
+            break;
+        }
+    }
+    return result;//마지막으로, 처음에 뽑아놓은 가장 큰 값을 return
+}
+```
+
+### 4. 전체 코드
+```java
+static class Heap {
+    private int[] heap = new int[30];//동적 배열 구현 귀찮아서 임시로 큰 배열 선언
+
+    public void insert(int data) {
+        int child = ++this.heap[0];//완전 이진트리의 특징 및 1번부터 사용하는 heap의 특징을 이용해서, 삽입될 index를 구함
+        this.heap[child] = data;//해당 index에 data를 삽입
+
+        int parent = child / 2;//삽입된 노드의 부모 인덱스를 구함
+        while (child != 1) {//루트노드에 도달하기 전까지 반복
+            int pValue = this.heap[parent];//부모 값
+            int cValue = this.heap[child];//자식 값
+
+            if (pValue < cValue) {//자식의 값이 부모보다 크다면
+                //부모와 자식의 값을 변경함
+                this.heap[parent] = cValue;
+                this.heap[child] = pValue;
+                //부모 자식의 인덱스를 재설정해줌
+                child = parent;
+                parent = child / 2;
+            } else {//부모의 값이 더 크다면
+                break;//그 위의 트리는 heap의 조건을 만족하기 때문에 더이상 진행하지 않아도 됨
+            }
+        }
+    }
+    
+    public int remove(){
+        if(this.heap[0] == 0){
+            throw new IllegalStateException("힙에 든게 없어용");
+        }
+        
+        int result = this.heap[1];//루트노드의 값을 뽑아냄
+        this.heap[1] = this.heap[this.heap[0]--];//마지막 노드를 루트노드로 올림
+        
+        int parent = 1;//부모 인덱스 
+        int child = parent*2;//자식 인덱스
+        while(child <= this.heap[0]){//자식인덱스가 완전 이진트리 범위안에 존재할때까지 반복
+            //부모 자식의 값 추출
+            int pValue = this.heap[parent];
+            int cValue = this.heap[child];
+            
+            if(child+1 <=this.heap[0] && cValue < this.heap[child+1]){//만약, 자식 노드의 형제노드가 존재하고, 형제노드가 더 크다면, 더 큰걸로 비교하기 위해 값을 변경
+                child++;
+                cValue = this.heap[child];
+            }
+            
+            if(cValue > pValue){//자식값이 더 크다면 변경해줘야함
+                this.heap[parent] = cValue;
+                this.heap[child] = pValue;
+                
+                //인덱스 재설정
+                parent = child;
+                child = parent*2;
+            }
+            else{//아니라면, 하위 서브트리는 모두 힙을 만족하고있기 때문에 break
+                break;
+            }
+        }
+        return result;//마지막으로, 처음에 뽑아놓은 가장 큰 값을 return
+    }
+
+    public int peek(){
+        if(this.heap[0] == 0){
+            throw new IllegalStateException("힙에 든게 없어용");
+        }
+        return this.heap[1];
+    }
+    
+    public boolean isEmpty(){
+        return this.heap[0] == 0;
+    }
+}
+```
+
+## PriorityQueue란?
+1. Queue개념에 우선순위를 도입한것.
+2. 일반적인 Queue는 FIFO 특징을 가지고 있음
+3. PriorityQueue는 들어온 순서에 상관없이, 우선순위에 따라 pop됨
+4. 일반적으로 Heap을 이용하여 구현함.
+
+### 자바 기준의 PriorityQueue
+생성자로 Comparator를 받는 코드가 존재함.
+```java
+public PriorityQueue(Comparator<? super E> comparator) {
+    this(DEFAULT_INITIAL_CAPACITY, comparator);
+}
+```
+이는, 생성자를 통해 우선순위를 부여하는 방법을 정의할 수 있음.
+
+혹은 Generic으로 넘겨준 클래스 타입에 선언되어있는 comparator를 이용하여 우선순위를 부여함.
+
+아래는 PriorityQueue에서 데이터를 heapify하는 과정의 코드
+
+
+![image](https://github.com/CodeWave-Summer-Edition/CSMaster/assets/43038815/143fa102-6d28-4d94-9d38-8a7811bffca8)
+
+## Map
+- Map은 (Key, Value) 형식의 묶음으로 자료를 저장하는 자료구조를 의미한다.
+- 보통 Red-Black 트리를 이용하여 자료를 저장함
+- Key값이 중복되면 안됨. (덮어쓰기 당함)
+
+## Set
+- Set은 Unique하게 데이터값을 저장하는 자료구조이다.
+- 중복되는 데이터는 1개만 저장된다.
+- 들어온 순서를 보장하지 않는다.
+
+## Hash & HashTable
+### Hash란?
+- 해시 함수를 이용하여 데이터의 Key값을 배열의 인덱스인 정수형태로 변환하기 위한 일련의 과정
+
+### Hash함수란?
+- 위의 Hash과정을 진행하는 함수
+
+### HashTable이란?
+- 위의 Hash를 이용해서, 데이터를 (Key,Value) 형식으로 저장하는 자료구조
+- Key값을 Hash함수를 통해 배열의 인덱스인 정수형태로 변환한다.
+- 정수형태로 변환된 key값의 index를 이용하여, 해당 index에 value값을 저장한다.
+- 검색 : O(1)
+    - 이는 key -> index 로 변환하는 hash함수에 따라 달라지는데, 보통 수학적인 계산을 통해 Hashing하기 때문에 O(1)이 된다.
+- 삽입 : O(1)
+    - key -> index로 변환한 뒤, 배열에 저장하면 되기때문에 O(1)이 된다.
+- 삭제 : O(1)
+    - 삭제하고싶은 key값을 hash함수에 넣은 뒤, 나온 index에 있는 value를 삭제해주면된다.
+
+### 하지만!
+- 잘못된 Hash함수는 다른 Key값의 결과가 동일하게 나올 수 있다.
+- 서로 다른 key들의 index가 중복된다면, 같은 인덱스에서 다른 key값의 데이터들이 충돌하게 된다.
+- 이를 Collision이라고 한다.
+
+### Collision 해결법
+1. 보통은 많은 수학자와 개발자들이 충돌되지 않도록 Hash함수를 구현했다.
+
+2. 분리 체인법
+- 이 방법은 같은 인덱스를 가지는 데이터가 여러개인 경우, 해당 인덱스에 LinkedList로 동일한 데이터들을 연결해 놓는 방식이다.
+- 하지만 이는, 해시 함수가 잘못되어 특정한 index에 몰리게 된다면 탐색시간이 길어질 수 있다.
+
+3. 개방 주소법
+- 이 방법은 만약 충돌이 생기게 된다면 비어있는 인덱스를 찾아 데이터를 저장하는 방법을 의미합니다.
+    - 선형 조사법: 충돌이 생기게된다면 인덱스를 +1씩 하며 비어있는 인덱스를 찾습니다.
+        - 하지만 이는 HashTable에 연속적으로 데이터가 저장된 상태에서 삽입시 충돌이 발생한다면, 삽입을 위해 많은 인덱스를 탐색해야하는 오버헤드가 발생합니다.
+
+    - 이차 조사법 : 선형 조사법이 +1 씩 증가시켰다면, 이차 조사법은 제곱수로 조사하는 방법입니다.
+
+    - 이중 해싱법 : 충돌이 발생한다면, 이차 해시 함수를 이용해서 인덱스를 다시 발급받는 방법을 의미합니다.  
