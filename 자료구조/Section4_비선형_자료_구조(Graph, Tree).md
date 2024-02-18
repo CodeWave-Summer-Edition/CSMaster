@@ -6,7 +6,7 @@
 
 정점과 간선으로 이루어진 자료 구조
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled.png)
+![Untitled](src/Untitled.png)
 
 ## 용어
 
@@ -41,7 +41,7 @@
 
 ## 그래프 구현 방법
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%201.png)
+![Untitled](src/Untitled%201.png)
 
 1. 인접 행렬
     - 그래프에 간선이 많이 존재하는 경우 적합
@@ -61,7 +61,7 @@
 
 ## 그래프 탐색
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%202.png)
+![Untitled](src/Untitled%202.png)
 
 ### BFS(Breadth-First Search)
 
@@ -185,7 +185,7 @@
 
 연결그래프이면서 사이클이 없는 그래프
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%203.png)
+![Untitled](src/Untitled%203.png)
 
 ### *트리가 되기 위한 조건 (3가지 중 2개만 충족해도 됨)
 
@@ -221,7 +221,7 @@
 
 1. **포화이진트리 (Perfect Binary Tree)**
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%204.png)
+    ![Untitled](src/Untitled%204.png)
     
     - 트리의 모든 노드가 꽉 차 있는 트리
         - 노드가 2개의 자식을 갖고 있음
@@ -229,27 +229,27 @@
     - 노드의 개수 = 2*트리의 높이 - 1
 2. 완전이진트리 (Complete Binary Tree)
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%205.png)
+    ![Untitled](src/Untitled%205.png)
     
     - 트리의 마지막 레벨 바로 전까지 꽉 차있고, 마지막 레벨에서 왼쪽부터 차례대로 채워져있는 트리
     - 노드의 개수 < 2*트리의 높이 - 1
     - 힙(heap)이랑 연관됨
 3. 편향이진트리 (Skewed Binary Tree)
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%206.png)
+    ![Untitled](src/Untitled%206.png)
     
     - 왼쪽 또는 오른쪽으로 편향되게 채워져있는 트리
     - 각각의 높이에서 1개의 노드만 있음
     - 트리의 높이 ≤ 노드의 개수 ≤ 2*트리의높이 - 1
 4. 정이진트리 (Full Binary Tree)
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%207.png)
+    ![Untitled](src/Untitled%207.png)
     
     - 모든 노드가 0개 또는 2개의 자식 노드만을 갖는 트리
     - 2*트리의 높이 + 1 ≤ 노드의 개수 ≤ 2*(트리의 높이+1) - 1
 5. 균형이진트리 (Balanced Binary Tree)
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%208.png)
+    ![Untitled](src/Untitled%208.png)
     
     - 모든 노드의 왼쪽과 오른쪽 서브 트리의 높이가 1 이상 차이가 나지 않는 트리
 
@@ -262,7 +262,7 @@
 | 이진탐색 | 탐색 시간 복잡도 O(logN) | - |
 | 연결리스트 | 삽입/삭제 시 O(1) 소요 | 탐색 시간 복잡도 O(N) |
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%209.png)
+![Untitled](src/Untitled%209.png)
 
 - 특징
     - 각 노드의 자식이 2개 이하
@@ -284,7 +284,7 @@
         - 자식 노드가 두개인 노드를 삭제하는 경우 : 오른쪽 서브트리의 min 값 또는 왼쪽 서비트리의 max 값 중 하나를 삭제할 노드의 위치로 끌어올림
 - 시간 복잡도 : `O(log N), N = 트리의 높이`
     
-    ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2010.png)
+    ![Untitled](src/Untitled%2010.png)
     
     - 트리의 높이에 비례하여 시간 복잡도가 증가함
     - 그러나 트리의 구조가 선형적일 경우 `O(N)`
@@ -293,7 +293,7 @@
 
 *스스로 균형을 잡는 이진 트리*
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2011.png)
+![Untitled](src/Untitled%2011.png)
 
 - 특징
     - 이진 탐색 트리의 속성을 가짐
@@ -316,32 +316,32 @@
     
     1. LL 불균형
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2012.png)
+        ![Untitled](src/Untitled%2012.png)
         
         - y 노드의 오른쪽 자식 노드를 z 노드로 변경
         - z 노드의 왼쪽 자식 노드를 y 노드 오른쪽 서브트리로 변경
         - y 는 새로운 루트 노드가 됨
     2. RR 불균형
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2013.png)
+        ![Untitled](src/Untitled%2013.png)
         
         - y 노드의 왼쪽 자식 노드를 z 노드로 변경
         - z 노드 오른쪽 자식 노드를 y 노드 왼쪽 서브트리로 변경
         - y 는 새로운 루트 노드가
     3. LR 불균형
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2014.png)
+        ![Untitled](src/Untitled%2014.png)
         
     4. RL 불균형
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2015.png)
+        ![Untitled](src/Untitled%2015.png)
         
 
 ### 레드 블랙 트리 (Red-Black Tree)
 
 *자가 균형 이진 탐색 트리의 한 종류*
 
-![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2016.png)
+![Untitled](src/Untitled%2016.png)
 
 - 특징
     1. 모든 노드는 Red 이거나 Black 이다
@@ -354,11 +354,11 @@
     - 레드블랙트리에서는 자식이 없는 노드를 NIL 노드라고 한다
     - 노드가 자식이 없을 때 (노드.left = NIL, 노드.right= NIL 과 같은 노드) 노드의 NIL 자식을 표현하기 위해 경계노드를 이용
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled.jpeg)
+        ![Untitled](src/Untitled.jpeg)
         
     - 그러나 모든 NIL 들에 메모리를 부과하면 낭비 → 하나의 T.nil 로 연결
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2017.png)
+        ![Untitled](src/Untitled%2017.png)
         
 - 흑색 높이
     
@@ -366,7 +366,7 @@
     
     - 임의의 노드에서 모든 자식 리프까지의 경로에 있는 모든 흑색노드의 수는 동일함
         
-        ![Untitled](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/Untitled%2018.png)
+        ![Untitled](src/Untitled%2018.png)
         
 - 연산
     - 참고 블로그 (발표자가 이해를 못함ㅠㅠ2)
@@ -389,11 +389,11 @@
 - 회전 : 이진트리의 특성을 보존하면서 트리의 균형을 맞춤
     - 좌회전
         
-        ![IMG_3484.jpeg](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/IMG_3484.jpeg)
+        ![IMG_3484.jpeg](src/IMG_3484.jpeg)
         
-        ![IMG_3485.jpeg](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/IMG_3485.jpeg)
+        ![IMG_3485.jpeg](src/IMG_3485.jpeg)
         
-        ![IMG_3486.jpeg](%E1%84%87%E1%85%B5%E1%84%89%E1%85%A5%E1%86%AB%E1%84%92%E1%85%A7%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%20cd98cb92fe0f4961ba0cb5c9757aff2c/IMG_3486.jpeg)
+        ![IMG_3486.jpeg](src/IMG_3486.jpeg)
         
         - x와  y(x의 오른쪽 자식)를 연결하는 간선을 중심축으로 회전
         - 서브 트리의 새로운 루트 : y
