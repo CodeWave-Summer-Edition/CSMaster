@@ -1,0 +1,770 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Join </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c9d94cba-6d30-40c2-a102-53bf348680c0" class="page sans"><header><h1 class="page-title">Join </h1><p class="page-description"></p></header><div class="page-body"><p id="eb19fc43-c8e4-42b9-b8c5-5620782fb446" class="">
+</p><h1 id="2e17be24-bf1c-482c-bfbb-ec2a3a14f352" class="">[1] 조인의 종류</h1><h2 id="3d703716-92b8-4738-8a66-2cba91babcd3" class="">1. 조인이란? </h2><p id="818e371b-6b73-4b3c-9e6e-8a9a0561c1f2" class="">데이터의 중복을 제거하고 무결성을 보장하기 위해 정규화된 (또는 데이터 성격에 따라 분리된) <em>두 개 이상의 테이블을 묶어서 하나의 결과물을 만드는 것</em></p><ul id="7008e3ec-5609-483b-a823-19debde32bdd" class="toggle"><li><details open=""><summary>MongoDB의 경우, <code>$lookup</code> 을 사용해서 RDBMS의 join 처럼 사용할 수 있다</summary><ul id="08cdb579-2d83-450b-b08b-6dde6030308e" class="bulleted-list"><li style="list-style-type:disc">NoSQL 데이터베이스는 보통 정규화를 수행하지 않고, 읽기 성능을 향상시키는 경우가 많음</li></ul><ul id="88417fab-50d6-4054-bc30-c661a290ca11" class="bulleted-list"><li style="list-style-type:disc">책에서는 MongoDB의 lookup 연산이 RDBMS의 join보다 성능이 떨어진다고 함</li></ul></details></li></ul><figure id="c7c79fa8-a39a-4d49-a34b-bc0da6cab7b1" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled.png"><img style="width:600px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled.png"/></a></figure><p id="c16ed9a5-6481-4bdc-9f62-9bfac87e5a25" class="">*참고) MySQL, Oracle 문법 차이</p><p id="642afcdc-e433-4878-95a1-02476e2fe3e5" class=""><strong>MySQL</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ef126074-26b6-436f-8440-bf983f4d1327" class="code"><code class="language-SQL">select 
+    book_id,
+    author_name,
+    date_format(published_date, &#x27;%Y-%m-%d&#x27;) as published_date
+from 
+    book
+    join author using (author_id)
+		-- join author on book.author_id = author.author_id
+where 
+    book.category = &#x27;경제&#x27;
+order by 
+    published_date asc;</code></pre><p id="5ecf8fe5-1ebb-461f-ac8a-0846b4896a1b" class=""><strong>Oracle</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4ef15aa6-bdc3-4c79-938a-7593ae2e49e4" class="code"><code class="language-SQL">select 
+    book_id,
+    author_name,
+    to_char(to_date(published_date), &#x27;YYYY-MM-DD&#x27;) as published_date
+from 
+    book, 
+		author
+where 
+    book.author_id = author.author_id
+    and book.category = &#x27;경제&#x27;
+order by 
+    published_date asc;</code></pre><h2 id="932fc8ee-fb7a-4e08-85c4-29eb980a8d92" class="">2. 조인의 분류</h2><h3 id="4a9b3209-4da9-47c3-ac70-98bbe2132151" class="">2-1. Equi Join</h3><ul id="ae9dac1e-bf21-4935-bfac-cd200405336d" class="bulleted-list"><li style="list-style-type:disc">두 테이블의 컬럼 값들이 서로 정확하게 일치(<code>=</code>)하는 경우에 사용</li></ul><ul id="a5efe7d7-6418-4ba2-99c8-c9d49f2cc383" class="bulleted-list"><li style="list-style-type:disc">대부분 PK ↔ FK 관계를 기반으로 하나, 꼭 그래야만 하는 것이 아님</li></ul><h3 id="415da811-90b4-483f-b987-ab713596d568" class="">2-2. Non-Equi Join</h3><ul id="685753b3-f34a-4d18-b458-cecd07a715f8" class="bulleted-list"><li style="list-style-type:disc">두 테이블 간 컬럼 값들이 서로 정확하게 일치하지 않는 경우에 사용</li></ul><ul id="43a7641f-6656-470f-898b-823cfb014777" class="bulleted-list"><li style="list-style-type:disc">이 경우 <code>between A and B</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code> 등의 연산자를 이용해서 join을 수행한다</li></ul><h3 id="3a2e365b-c48a-4c3d-abbf-d3393f9e565e" class="">2-3. Inner Join</h3><ul id="7eb07e17-67f1-4b1c-bf62-86ae52c3639b" class="bulleted-list"><li style="list-style-type:disc">join 조건에서 값이 일치하는 행만 반환</li></ul><h3 id="fb0565ea-1c8d-4e14-91cc-77ed280cffdd" class="">2-4. Outer Join </h3><ul id="8a6cc695-106e-40b1-a24e-abdb3b1fe061" class="bulleted-list"><li style="list-style-type:disc">join 조건에서 한쪽 값이 없더라도 행 반환<ul id="fb5cc50a-ad9c-469a-9bb1-89898e1da7e7" class="bulleted-list"><li style="list-style-type:circle">따라서 equi join이 될 수 없음</li></ul></li></ul><ul id="65972361-456c-4f97-afb6-b0ee28baa844" class="bulleted-list"><li style="list-style-type:disc">값이 없는 다른 행은 기본적으로 <code>null</code></li></ul><h2 id="2fabb0f6-fc67-43b2-a091-b19e8347f7c1" class="">3. Inner/Outer Join의 종류</h2><h3 id="328e1459-a70b-417e-aadc-bd179827966d" class="">3-1. (INNER) JOIN</h3><ul id="49cf3209-ddfb-48cc-8cfa-baf58543f278" class="bulleted-list"><li style="list-style-type:disc">두 테이블의 카테시안 곱을 한 결과에서 조인 조건에 맞지 않는 결과들을 모두 제외한 값<figure id="f1eff61f-6722-4f23-b2c3-2d511894f5b0" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%201.png"><img style="width:288px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%201.png"/></a></figure><ul id="3020e350-5b4c-4e42-b780-faa162fb7ab3" class="bulleted-list"><li style="list-style-type:circle">실제로 카테시안 곱을 진행하지 않고서 조인 조건에 맞는 값만 반환</li></ul></li></ul><ul id="c968e32d-d389-41ac-9fc3-84b577c9b661" class="bulleted-list"><li style="list-style-type:disc">예시<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ec3551df-5a36-4648-83ac-e96a2c9158b4" class="code"><code class="language-SQL">FROM A INNER JOIN B ON A.w = B.y
+
+/*
+Table A       Table B       Result
++-------+     +-------+     +---------------+
+| w | x |  *  | y | z |  =  | w | x | y | z |
++-------+     +-------+     +---------------+
+| 1 | a |     | 2 | k |     | 2 | b | 2 | k |
+| 2 | b |     | 3 | m |     | 3 | c | 3 | m |
+| 3 | c |     | 3 | n |     | 3 | c | 3 | n |
+| 3 | d |     | 4 | p |     | 3 | d | 3 | m |
++-------+     +-------+     | 3 | d | 3 | n |
+                            +---------------+
+*/</code></pre></li></ul><h3 id="937e5dc8-b53c-47f8-b105-a9f6a67c08b3" class="">3-2. LEFT (OUTER) JOIN</h3><ul id="ebd7cfce-889e-4e45-bdb3-7323f901be53" class="bulleted-list"><li style="list-style-type:disc">왼쪽 테이블의 값들은 모두 남겨두고 오른쪽에 있는 테이블과 조인하는 연산<figure id="c7b0a154-d91e-4f67-880f-02e0b1f09545" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%202.png"><img style="width:240px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%202.png"/></a></figure><ul id="a977b812-158b-4eae-9176-2160c59e2a09" class="bulleted-list"><li style="list-style-type:circle">왼쪽 테이블에서 조인 조건에 부합하는 값이 없더라도 모두 반환되며, 그 값들은  NULL 로 반환</li></ul><ul id="1890e17a-45c6-42fa-b963-d0512755aad4" class="bulleted-list"><li style="list-style-type:circle">오른쪽 테이블에서 조인 조건에 부합하는 값이 없으면 제외되어 결과값 반환</li></ul></li></ul><ul id="377fefdd-a8af-4793-a1d4-bca11dbc2aea" class="bulleted-list"><li style="list-style-type:disc">예시<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="50a39e02-bfb8-4e15-9285-b604d2be59b1" class="code"><code class="language-SQL">FROM A LEFT OUTER JOIN B ON A.w = B.y
+
+/*
+Table A       Table B       Result
++-------+     +-------+     +---------------------------+
+| w | x |  *  | y | z |  =  | w    | x    | y    | z    |
++-------+     +-------+     +---------------------------+
+| 1 | a |     | 2 | k |     | 1    | a    | NULL | NULL |
+| 2 | b |     | 3 | m |     | 2    | b    | 2    | k    |
+| 3 | c |     | 3 | n |     | 3    | c    | 3    | m    |
+| 3 | d |     | 4 | p |     | 3    | c    | 3    | n    |
++-------+     +-------+     | 3    | d    | 3    | m    |
+                            | 3    | d    | 3    | n    |
+                            +---------------------------+
+*/</code></pre></li></ul><h3 id="093f3502-39f5-4c34-be6f-0a03a61a8394" class="">3-3. RIGHT (OUTER) JOIN</h3><ul id="9329f067-f608-4ab0-84aa-8c0519d4773d" class="bulleted-list"><li style="list-style-type:disc">오른쪽 테이블의 값들은 모두 남겨두고 왼쪽에 있는 테이블과 조인하는 연산<figure id="8e68ce53-bb50-4796-8f57-f7f7dc2c8b20" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%203.png"><img style="width:240px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%203.png"/></a></figure><ul id="2ffd3917-3072-4199-8da0-bbe3c8445a44" class="bulleted-list"><li style="list-style-type:circle">오른쪽에 있는 테이블의 값들은 조인 조건에 부합하지 않더라도 모두 반환되며, 그 값들은 NULL 로 반환</li></ul><ul id="1c8bae7a-7c56-47ce-98d2-a315422adbfa" class="bulleted-list"><li style="list-style-type:circle">왼쪽 테이블의 값들 중 조인 조건에 부합하지 않는 값들은 모두 제외되어 결과값 반환</li></ul></li></ul><ul id="f743693b-9577-4593-8479-11c1689c45b7" class="bulleted-list"><li style="list-style-type:disc">예시<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="15bd9086-e0ec-404c-bcd3-b811d72c5153" class="code"><code class="language-SQL">FROM A RIGHT OUTER JOIN B ON A.w = B.y
+
+/*
+Table A       Table B       Result
++-------+     +-------+     +---------------------------+
+| w | x |  *  | y | z |  =  | w    | x    | y    | z    |
++-------+     +-------+     +---------------------------+
+| 1 | a |     | 2 | k |     | 2    | b    | 2    | k    |
+| 2 | b |     | 3 | m |     | 3    | c    | 3    | m    |
+| 3 | c |     | 3 | n |     | 3    | c    | 3    | n    |
+| 3 | d |     | 4 | p |     | 3    | d    | 3    | m    |
++-------+     +-------+     | 3    | d    | 3    | n    |
+                            | NULL | NULL | 4    | p    |
+                            +---------------------------+
+*/</code></pre></li></ul><h3 id="e153eba1-fc27-4e81-8f93-ca9c10c4ef1d" class="">3-4. FULL (OUTER) JOIN</h3><ul id="5cbfc2a2-4222-4f54-897a-fd63a9f738bb" class="bulleted-list"><li style="list-style-type:disc">조인조건에 부합하는 왼쪽, 오른쪽 테이블의 모든 값들을 반환함<figure id="e1014b3d-117d-4b65-8e02-b052c65343ea" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%204.png"><img style="width:288px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%204.png"/></a></figure><ul id="18d97c47-f059-4e9e-97fb-1f8712f068e1" class="bulleted-list"><li style="list-style-type:circle">만약 한쪽의 값은 조인 조건에 부합하지만 다른 한쪽은 부합하지 않는다면, 부합하지 않는 쪽의 값들은 모두 NULL 로 반환됨</li></ul></li></ul><ul id="af18fa0e-6680-4a91-ada3-d6a70ecac723" class="bulleted-list"><li style="list-style-type:disc">예시<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e97b6fc9-51f6-48d5-9411-3169e22a9144" class="code"><code class="language-SQL">FROM A FULL OUTER JOIN B ON A.w = B.y
+
+/*
+Table A       Table B       Result
++-------+     +-------+     +---------------------------+
+| w | x |  *  | y | z |  =  | w    | x    | y    | z    |
++-------+     +-------+     +---------------------------+
+| 1 | a |     | 2 | k |     | 1    | a    | NULL | NULL |
+| 2 | b |     | 3 | m |     | 2    | b    | 2    | k    |
+| 3 | c |     | 3 | n |     | 3    | c    | 3    | m    |
+| 3 | d |     | 4 | p |     | 3    | c    | 3    | n    |
++-------+     +-------+     | 3    | d    | 3    | m    |
+                            | 3    | d    | 3    | n    |
+                            | NULL | NULL | 4    | p    |
+                            +---------------------------+
+*/</code></pre></li></ul><h3 id="8412592a-712f-4302-b322-68ed87d44d51" class="">3-5. CROSS JOIN</h3><ul id="b39c11f8-7e7c-4977-a154-1b8fccde472a" class="bulleted-list"><li style="list-style-type:disc">from 절에 있는 두 테이블의 카테시안 곱을 반환<figure id="16c27173-c535-476b-985a-2fc2ad6f8318" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%205.png"><img style="width:336px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%205.png"/></a></figure><ul id="87f32684-2a52-41e1-beff-df197dbd0f98" class="bulleted-list"><li style="list-style-type:circle">즉, 왼쪽 테이블의 모든 row 를 오른쪽 테이블의 모든 row 와 결합하여 반환</li></ul><ul id="d2f327dd-33bd-4187-b48e-542be2a86a25" class="bulleted-list"><li style="list-style-type:circle">따라서 결과값의 행 개수는 <code>왼쪽 테이블 행 개수 * 오른쪽 테이블 행 개수</code></li></ul></li></ul><ul id="239dada7-8fb1-4b0d-9234-0f3db0c5343b" class="bulleted-list"><li style="list-style-type:disc">예시<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="851931b2-fe93-44a9-a3b2-df1253beebc8" class="code"><code class="language-SQL">FROM A CROSS JOIN B
+-- FROM A, B
+
+/*
+Table A       Table B       Result
++-------+     +-------+     +---------------+
+| w | x |  *  | y | z |  =  | w | x | y | z |
++-------+     +-------+     +---------------+
+| 1 | a |     | 2 | c |     | 1 | a | 2 | c |
+| 2 | b |     | 3 | d |     | 1 | a | 3 | d |
++-------+     +-------+     | 2 | b | 2 | c |
+                            | 2 | b | 3 | d |
+                            +---------------+
+*/</code></pre></li></ul><h1 id="2135e48f-43f0-4cb6-9d8d-aa40025b1ade" class="">[2] 조인의 원리</h1><figure id="d7f80286-8f97-4a93-adb3-af6acc869c47"><a href="https://dataonair.or.kr/db-tech-reference/d-guide/sql/?mod=document&amp;uid=356" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">조인 수행 원리</div><div class="bookmark-description">조인이란 두 개 이상의 테이블을 하나의 집합으로 만드는 연산이다. SQL문에서 FROM 절에 두 개 이상의 테이블이 나열될 경우 조인이 수행된다. 조인 연산은 두 테이블 사이에서 수행된다. FROM 절에 A, B, C라는 세 개의 테이블이 존재하더라도 세 개의 테이블이 동시에 조인이 수행되는 것은 아니다. 세 개의 테이블 중에서 먼저 두 개의 테이블에 대해 조인이 수행된다. 그리고 먼저 수행된 조인 결과와 나머지 테이블 사이에서 조인이 수행된다. 이러한 작업은 FROM 절에 나열된 모든 테이블을 조인할 때까지 반복 수행한다. 예를 들어, A, B, C 세 개의 테이블을 조인할 때를 가정으로 설명하면 다음과 같다. 먼저 A와 B 두 테이블을 먼저 조인하면 해당 조인 결과와 나머지 C 테이블을 조인한다(A → B → C). 만약, A와 C 테이블을 먼저 조인한다면 해당 조인 결과와 나머지 B 테이블을 조인한다(A → C → B). 테이블 또는 조인 결과를 이용하여 조인을 수행할 때 조인 단계별로 다른 조인 기법을 사용할 수 있다. 예를 들어, A와 B 테이블을 조인할 때는 NL Join 기법을 사용하고 해당 조인 결과와 C 테이블을 조인할 때는 Hash Join 기법을 사용할 수 있다. 조인 기법은 두 개의 테이블을 조인할 때 사용할 수 있는 방법이다. 여기서는 조인 기법 중에서 자주 사용되는 NL Join, Hash Join, Sort Merge Join에 대해서 조인 원리를 간단하게 설명한다. 1. NL Join NL Join은 프로그래밍에서 사용하는 중첩된 반복문과 유사한 방식으로 조인을 수행한다. 반복문의 외부에 있는 테이블을 선행 테이블 또는 외부 테이블(Outer Table)이라고 하고, 반복문의 내부에 있는 테이블을 후행 테이블 또는 내부 테이블(Inner Table)이라고 한다. FOR 선행 테이블 읽음 → 외부 테이블(Outer Table) FOR 후행 테이블 읽음 → 내부 테이블(Inner Table) (선행 테이블과 후행 테이블 조인) 먼저 선행 테이블의 조건을 만족하는 행을 추출하여 후행 테이블을 읽으면서 조인을 수행한다. 이 작업은 선행 테이블의 조건을 만족하는 모든 행의 수만큼 반복 수행한다. NL Join에서는 선행 테이블의 조건을 만족하는 행의 수가 많으면(처리 주관 범위가 넓으면), 그 만큼 후행 테이블의 조인 작업은 반복 수행된다. 따라서 결과 행의 수가 적은(처리 주관 범위가 좁은) 테이블을 조인 순서상 선행 테이블로 선택하는 것이 전체 일량을 줄일 수 있다. NL Join은 랜덤 방식으로 데이터를 액세스하기 때문에 처리 범위가 좁은 것이 유리하다. NL Join의 작업 방법은 다음과 같다. ① 선행 테이블에서 주어진 조건을 만족하는 행을 찾음 ② 선행 테이블의 조인 키 값을 가지고 후행 테이블에서 조인 수행 ③ 선행 테이블의 조건을 만족하는 모든 행에 대해 1번 작업 반복 수행 [그림 Ⅱ-3-12]의 예를 이용하여 NL Join의 수행 방식을 알아보도록 하자. [그림 Ⅱ-3-12]에서 인덱스는 B-트리 인덱스의 리프 블록만을 그린 것임을 표현한 것이다. ① 선행 테이블에서 조건을 만족하는 첫 번째 행을 찾음 → 이때 선행 테이블에 주어진 조건을 만족하지 않는 경우 해당 데이터는 필터링 됨 ② 선행 테이블의 조인 키를 가지고 후행 테이블에 조인 키가 존재하는지 찾으러 감 → 조인 시도 ③ 후행 테이블의 인덱스에 선행 테이블의 조인 키가 존재하는지 확인 → 선행 테이블의 조인 값이 후행 테이블에 존재하지 않으면 선행 테이블 데이터는 필터링 됨 (더 이상 조인 작업을 진행할 필요 없음) ④ 인덱스에서 추출한 레코드 식별자를 이용하여 후행 테이블을 액세스 → 인덱스 스캔을 통한 테이블 액세스 후행 테이블에 주어진 조건까지 모두 만족하면 해당 행을 추출버퍼에 넣음 ⑤ ~ ⑪ 앞의 작업을 반복 수행함 추출버퍼는 SQL문의 실행결과를 보관하는 버퍼로서 일정 크기를 설정하여 추출버퍼에 결과가 모두 차거나 더 이상 결과가 없어서 추출버퍼를 채울 것이 없으면 결과를 사용자에게 반환한다. 추출버퍼는 운반단위, Array Size, Prefetch Size라고도 한다. [그림 Ⅱ-3-12]에서 만약 선행 테이블에 사용 가능한 인덱스가 존재한다면 인덱스를 통해 선행 테이블을 액세스할 수 있다. (여기서는 사용할 인덱스가 없음을 가정으로 설명한 것임) NL Join 기법은 조인이 성공하면 바로 조인 결과를 사용자에게 보여 줄 수 있다. 그래서 결과를 가능한 빨리 화면에 보여줘야 하는 온라인 프로그램에 적당한 조인 기법이다. 2. Sort Merge Join Sort Merge Join은 조인 칼럼을 기준으로 데이터를 정렬하여 조인을 수행한다. NL Join은 주로 랜덤 액세스 방식으로 데이터를 읽는 반면 Sort Merge Join은 주로 스캔 방식으로 데이터를 읽는다. Sort Merge Join은 랜덤 액세스로 NL Join에서 부담이 되던 넓은 범위의 데이터를 처리할 때 이용되던 조인 기법이다. 그러나 Sort Merge Join은 정렬할 데이터가 많아 메모리에서 모든 정렬 작업을 수행하기 어려운 경우에는 임시 영역(디스크)을 사용하기 때문에 성능이 떨어질 수 있다. 일반적으로 대량의 조인 작업에서 정렬 작업을 필요로 하는 Sort Merge Join 보다는 CPU 작업 위주로 처리하는 Hash Join이 성능상 유리하다. 그러나 Sort Merge Join은 Hash Join과는 달리 동등 조인 뿐만 아니라 비동등 조인에 대해서도 조인 작업이 가능하다는 장점이 있다. Sort Merge Join의 동작은 [그림 Ⅱ-3-13]과 같다. ① 선행 테이블에서 주어진 조건을 만족하는 행을 찾음 ② 선행 테이블의 조인 키를 기준으로 정렬 작업을 수행 ① ~ ②번 작업을 선행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 ③ 후행 테이블에서 주어진 조건을 만족하는 행을 찾음 ④ 후행 테이블의 조인 키를 기준으로 정렬 작업을 수행 ③ ~ ④번 작업을 후행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 ⑤ 정렬된 결과를 이용하여 조인을 수행하며 조인에 성공하면 추출버퍼에 넣음 Sort Merge Join은 조인 칼럼의 인덱스를 사용하지 않기 때문에 조인 칼럼의 인덱스가 존재하지 않을 경우에도 사용할 수 있는 조인 기법이다. Sort Merge Join에서 조인 작업을 위해 항상 정렬 작업이 발생하는 것은 아니다. 예를 들어, 조인할 테이블 중에서 이미 앞 단계의 작업을 수행하는 도중에 정렬 작업이 미리 수행되었다면 조인을 위한 정렬 작업은 발생하지 않을 수 있다. 3. Hash Join Hash Join은 해슁 기법을 이용하여 조인을 수행한다. 조인을 수행할 테이블의 조인 칼럼을 기준으로 해쉬 함수를 수행하여 서로 동일한 해쉬 값을 갖는 것들 사이에서 실제 값이 같은지를 비교하면서 조인을 수행한다. Hash Join은 NL Join의 랜덤 액세스 문제점과 Sort Merge Join의 문제점인 정렬 작업의 부담을 해결 위한 대안으로 등장하였다. Hash Join의 동작은 [그림 Ⅱ-3-14]와 같다. ① 선행 테이블에서 주어진 조건을 만족하는 행을 찾음 ② 선행 테이블의 조인 키를 기준으로 해쉬 함수를 적용하여 해쉬 테이블을 생성 → 조인 칼럼과 SELECT 절에서 필요로 하는 칼럼도 함께 저장됨 ① ~ ②번 작업을 선행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 ③ 후행 테이블에서 주어진 조건을 만족하는 행을 찾음 ④ 후행 테이블의 조인 키를 기준으로 해쉬 함수를 적용하여 해당 버킷을 찾음 → 조인 키를 이용해서 실제 조인될 데이터를 찾음 ⑤ 조인에 성공하면 추출버퍼에 넣음 ③ ~ ⑤번 작업을 후행 테이블의 조건을 만족하는 모든 행에 대해서 반복 수행 Hash Join은 조인 칼럼의 인덱스를 사용하지 않기 때문에 조인 칼럼의 인덱스가 존재하지 않을 경우에도 사용할 수 있는 조인 기법이다. Hash Join은 해쉬 함수를 이용하여 조인을 수행하기 때문에 &#x27;=&#x27;로 수행하는 조인 즉, 동등 조인에서만 사용할 수 있다. 해쉬 함수를 적용한 값은 어떤 값으로 해슁될 지 알 수 없다. 해쉬 함수가 적용될 때 동일한 값은 항상 같은 값으로 해슁됨이 보장된다. 그러나 해쉬 함수를 적용할 때 보다 큰 값이 항상 큰 값으로 해슁되고 작은 값이 항상 작은 값으로 해슁된다는 보장은 없다. 그렇기 때문에 Hash Join은 동등 조인에서만 사용할 수 있다. [그림 Ⅱ-3-14]와 같이 Hash Join은 조인 작업을 수행하기 위해 해쉬 테이블을 메모리에 생성해야 한다. 생성된 해쉬 테이블의 크기가 메모리에 적재할 수 있는 크기보다 더 커지면 임시 영역(디스크)에 해쉬 테이블을 저장한다. 그러면 추가적인 작업이 필요해 진다. 그렇기 때문에 Hash Join을 할 때는 결과 행의 수가 적은 테이블을 선행 테이블로 사용하는 것이 좋다. 선행 테이블의 결과를 완전히 메모리에 저장할 수 있다면 임시 영역에 저장하는 작업이 발생하지 않기 때문이다. Hash Join에서는 선행 테이블을 이용하여 먼저 해쉬 테이블을 생성한다고 해서 선행 테이블을 Build Input이라고도 하며, 후행 테이블은 만들어진 해쉬 테이블에 대해 해쉬 값의 존재여부를 검사한다고 해서 Prove Input이라고도 한다.</div></div><div class="bookmark-href"><img src="https://dataonair.or.kr/wp-content/uploads/2020/06/cropped-fabicon-192x192.png" class="icon bookmark-icon"/>https://dataonair.or.kr/db-tech-reference/d-guide/sql/?mod=document&amp;uid=356</div></div></a></figure><figure id="54ab00e6-22ef-4402-ae7b-12bdc715b8c4"><a href="https://hoon93.tistory.com/46" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">오라클 NL Join, Sort Merge Join, Hash Join 특징 총정리</div><div class="bookmark-description">NL Join(Nested Loops Join) 수행 원리 1) 다음은 NL Join의 수행 방식을 단계별로 나타낸 것입니다. ① 선행 테이블에서 조건을 만족하는 첫 번째 행을 찾음 → 이때 선행 테이블에 주어진 조건을 만족하지 않는 경우 해당 데이터는 필터링 된다. ② 선행 테이블의 조인 키를 가지고 후행 테이블에 조인 키가 존재하는지 찾으러 감 → 조인 시도 ③ 후행 테이블의 인덱스에 선행 테이블의 조인 키가 존재하는지 확인 → 선행 테이블의 조인 값이 후행 테이블에 존재하지 않으면 선행 테이블 데이터는 필터링 됨 (더 이상 조인 작업을 진행할 필요 없음) ④ 인덱스에서 추출한 레코드 식별자를 이용하여 후행 테이블을 액세스 → 후행 테이블에 주어진 조건까지 모두 만족하면 해당 행을 추출버퍼에 넣음. ..</div></div><div class="bookmark-href"><img src="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico" class="icon bookmark-icon"/>https://hoon93.tistory.com/46</div></div><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9975853B5F6D556617" class="bookmark-image"/></a></figure><p id="2a242912-9f00-4bab-b765-d64faee846df" class="">
+</p><h2 id="56a74687-3175-4342-8eba-b14bf9e623f0" class="">1. 중첩 루프 조인(NLJ, Nested Loop Join)</h2><ul id="e57f7c57-7731-49a6-a3b0-f683466e53c1" class="bulleted-list"><li style="list-style-type:disc">프로그래밍에서 사용하는 중첩 반복문과 같은 원리로 조인을 수행</li></ul><ul id="fc4b8e1c-f18c-40d1-8ac2-074af891640b" class="bulleted-list"><li style="list-style-type:disc">반복문의 외부에 있는 테이블을 선행/외부 테이블 (Outer Table)이라고 하고, 반복문의 내부에 있는 테이블을 후행/내부 (Inner Table)이라고 함</li></ul><ul id="25f708e0-9f9c-4f0e-86af-4f1b4de63362" class="bulleted-list"><li style="list-style-type:disc">outer join 에서 만족하는 레코드가 적을수록 효율이 좋음</li></ul><ul id="82a6d6a7-3adf-400f-940e-f0f1c44c3082" class="bulleted-list"><li style="list-style-type:disc">조인 조건에 해당하는 컬럼들은 <code>인덱스를 갖고 있어야 함</code></li></ul><ul id="db0b1592-a174-4bfb-85e5-9a19f3f50218" class="bulleted-list"><li style="list-style-type:disc">랜덤 액세스 방식으로 데이터를 읽음<ul id="42a31564-3084-4f4b-89cc-5715586b51b9" class="bulleted-list"><li style="list-style-type:circle">인덱스 스캔은 NL조인 방식으로 조인을 수행함</li></ul><ul id="a7d25d59-94cd-42ca-825b-24795f74e729" class="bulleted-list"><li style="list-style-type:circle">랜덤 접근에 대한 비용이 많이 증가하므로 대용량 테이블에서는 사용하지 않음</li></ul></li></ul><ul id="a1d4d9ea-7f28-4b6f-828a-a5fe39729b3a" class="bulleted-list"><li style="list-style-type:disc">조인을 한 row 씩 순차적으로 진행함</li></ul><ul id="837be1c1-6c60-45f8-8186-7d90c637bb16" class="bulleted-list"><li style="list-style-type:disc">인덱스 구성 전략이 특히 중요<ul id="a9bd4a79-08f5-445f-b557-30e5b93116e1" class="bulleted-list"><li style="list-style-type:circle">조인 컬럼에 대한 인덱스가 있는지 없는지</li></ul><ul id="c65585a6-b30d-440c-98c5-7fd343e870c3" class="bulleted-list"><li style="list-style-type:circle">있으면 컬럼이 어떻게 구성되어있는지에 따라 조인 효율이 크게 달라짐</li></ul></li></ul><ul id="4bfd693e-79ab-49f9-9af1-7a2e9e3b6b3f" class="bulleted-list"><li style="list-style-type:disc">소량의 데이터를 주로 처리하거나, 부분 범위 처리가 가능한 온라인 트랜잭션 환경에 적합한 조인 방식<br/>+) 조인이 성공하면 바로 조인 결과를 사용자에게 보여줄 수 있어, 결과를 가능한 빨리 보여줘야 하는 온라인 프로그램에 적합<br/></li></ul><ul id="c56a0bac-772e-4ada-b804-91466c0d9376" class="bulleted-list"><li style="list-style-type:disc">NL Join 과정<p id="137b247c-3231-4f16-bcca-41284758cfee" class="">*추출 버퍼는 SQL문 실행 결과를 보관하는 버퍼로, 일정 크기를 설정해서 추출 버퍼에 결과가 모두 차거나 더이상 결과가 없으면 추출 버퍼 내 결과를 사용자에게 반환</p><figure id="3553473c-6b1a-4ecc-8c76-b10fa49658d9" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%206.png"><img style="width:624px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%206.png"/></a></figure><p id="873f088d-2346-400c-a46b-d580b6f80af5" class="">① 선행 테이블에서 조건을 만족하는 첫 번째 행을 찾음 → 이때 선행 테이블에 주어진 조건을 만족하지 않는 경우 해당 데이터는 필터링 됨</p><p id="8958d990-302e-4666-a595-db84efff52f6" class="">② 선행 테이블의 조인 키를 가지고 후행 테이블에 조인 키가 존재하는지 찾으러 감 → 조인 시도 </p><p id="fc9dec17-6915-42da-9082-c9e6a4fad418" class="">③ 후행 테이블의 인덱스에 선행 테이블의 조인 키가 존재하는지 확인 → 선행 테이블의 조인 값이 후행 테이블에 존재하지 않으면 선행 테이블 데이터는 필터링 됨 (더 이상 조인 작업을 진행할 필요 없음) </p><p id="b31fd147-7797-4736-8aa3-866be04fddb1" class="">④ 인덱스에서 추출한 레코드 식별자를 이용하여 후행 테이블을 액세스 → 인덱스 스캔을 통한 테이블 액세스 후행 테이블에 주어진 조건까지 모두 만족하면 해당 행을 추출버퍼에 넣음 </p><p id="525daf89-6cf2-48ed-8b79-79be6fa58245" class="">⑤ ~ ⑪ 앞의 작업을 반복 수행</p></li></ul><h3 id="4d07b9b0-5ac3-4290-b2d0-cda1f1459da2" class="">1-1. Block Nested Loop Join</h3><p id="6aefd7f0-0d77-4a02-afda-4749b065813a" class=""><del><em>이런 게 있었단다~</em></del></p><ul id="3d5541ae-72f5-4737-92a9-75c24e90bae5" class="bulleted-list"><li style="list-style-type:disc">인덱스가 없는 환경에서 활용 가치가 높은 조인</li></ul><ul id="92962342-5c1a-40ea-bca7-d78a85aaa775" class="bulleted-list"><li style="list-style-type:disc">선행 테이블을 조인 버퍼에 적재해두고, 후행 테이블에서 탐색한 결과 집합을 결합하는 방식으로 작동</li></ul><ul id="d31ea964-bc0c-410c-b8cb-2f8349488fb4" class="bulleted-list"><li style="list-style-type:disc">후행 테이블의 접근 횟수를 줄여서 전체 쿼리 성능을 높이는 방식</li></ul><p id="55cddf30-5861-411f-8c85-8d34f3b637ba" class="">→ MySQL 8.0.18 버전 이후 BNL 조인 대신 해시 조인을 사용한다고 함</p><h2 id="db5591fd-dc49-401d-b2ad-8687fe39d5cc" class="">2. 정렬 병합 조인 (Sort Merge Join)</h2><ul id="29d1cd9e-1c87-4014-87d4-b3f969f636de" class="bulleted-list"><li style="list-style-type:disc">조인 컬럼을 기준으로 데이터를 정렬하고, 정렬이 끝난 이후에 조인 수행<ul id="f30da6eb-feec-4d9d-96ac-1cae3b1800ec" class="bulleted-list"><li style="list-style-type:circle">그러나 조인 작업을 위해 항상 정렬 작업이 발생하지는 않음 (이미 앞 단계의 작업을 수행하던 중에 정렬이 수행되었다면 등)</li></ul></li></ul><ul id="c8a1344e-386d-49d9-821f-7a28ae3480fc" class="bulleted-list"><li style="list-style-type:disc">주로 Full Table Scan 방식으로 데이터를 읽음<ul id="541862ee-1ad0-4ce1-8d88-a43e31c170cd" class="bulleted-list"><li style="list-style-type:circle">랜덤 액세스로는 NLJ 에서 부담이 되던 넓은 범위의 데이터를 처리할 때 이용되던 기법</li></ul><ul id="1eb81a09-533f-43eb-945b-8394b3dfe7aa" class="bulleted-list"><li style="list-style-type:circle">그러나 정렬할 데이터가 많아 메모리에서 모든 정렬 작업을 수행하기 어려운 경우 디스크를 사용하기 때문에 성능이 떨어질 수 있음</li></ul><ul id="e92144bd-1b90-4887-8baa-2bdf7bad746c" class="bulleted-list"><li style="list-style-type:circle">그래서 일반적으로 CPU 작업 위주로 처리하는 Hash Join이 성능상 유리하지만, 정렬 병합 조인은 해시 조인과 달리 Non-equi 조인에 대해서도 조인이 가능함</li></ul></li></ul><ul id="fc6f6b54-d515-4f58-a636-7bd950cce640" class="bulleted-list"><li style="list-style-type:disc">정렬 병합 조인 과정<figure id="9bc630f0-f0fa-4ec2-99c6-9cb24840549b" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%207.png"><img style="width:576px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%207.png"/></a></figure><p id="963a0dc0-7191-422b-b4de-9557bbc73916" class="">① 선행 테이블에서 주어진 조건을 만족하는 행을 찾음 </p><p id="2a2f7cdd-d751-4817-94fb-72dee091664e" class="">② 선행 테이블의 조인 키를 기준으로 정렬 작업을 수행 </p><p id="aabf5d40-cda1-4429-baca-ca178b9cefed" class="">① ~ ②번 작업을 선행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 </p><p id="232a41d2-907a-42c8-89e0-9822f48620c3" class="">③ 후행 테이블에서 주어진 조건을 만족하는 행을 찾음 </p><p id="83afba37-2372-47a0-b105-fe7db031f168" class="">④ 후행 테이블의 조인 키를 기준으로 정렬 작업을 수행 </p><p id="0645015c-fd22-431a-9b65-51784bd32799" class="">③ ~ ④번 작업을 후행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 </p><p id="aa4735d6-1bbe-4420-af96-34abcb64c2b8" class="">⑤ 정렬된 결과를 이용하여 조인을 수행하며 조인에 성공하면 추출버퍼에 넣음</p></li></ul><h2 id="2398c0d0-3377-44f3-b517-f656e65e37f5" class="">3. 해시 조인</h2><figure id="95137ece-dc1d-499f-88c2-1fb1d127f0ea"><a href="https://genote.tistory.com/13" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hash Join</div><div class="bookmark-description">기본 메커니즘 1. build 단계 : 작은 쪽 테이블(build input)을 읽어 해시 테이블(해시 맵)을 생성한다. 2. probe 단계 : 큰 쪽 테이블(probe input)을 읽어 해시 테이블을 탐색하면서 조인한다. * use_hash 힌트로 해시조인을 유도한다. SQL 수행과정 SELECT /*+ ordered use_hash(E) */ E.EMPNO, E.ENAME, E.SAL, D.DNAME FROM DEPT D INNER JOIN EMP E ON D.DEPTNO = E.DEPTNO AND E.SAL &gt; 1500 AND E.JOB = &#x27;SALESMAN&#x27; WHERE D.DNAME = &#x27;SALES&#x27; ; Execution plan -----------------------------------..</div></div><div class="bookmark-href"><img src="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico" class="icon bookmark-icon"/>https://genote.tistory.com/13</div></div><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbFXjbx%2FbtsaVcvlEWO%2FGVKmFNRKheUFU4Wiu5K5tK%2Fimg.png" class="bookmark-image"/></a></figure><ul id="e9329d5f-ff0e-478e-9c65-ca178e972011" class="bulleted-list"><li style="list-style-type:disc">해싱 기법을 이용해 조인 수행<ul id="fa24f6d3-2df3-4650-9c44-929b2ab2fd49" class="bulleted-list"><li style="list-style-type:circle">조인을 수행할 테이블의 조인 컬럼을 기준으로 해시 함수를 수행하여, 서로 동일한 해시 값을 갖는 것들 사이에서 실제 값이 같은지를 비교하면서 조인 수행</li></ul></li></ul><ul id="3d8de59a-ced0-4cd1-8a31-ba5628a077e6" class="bulleted-list"><li style="list-style-type:disc">NL조인의 랜덤 액세스 문제점과 Sort Merge Join의 정렬 작업 부담을 해결하기 위해 만들어짐</li></ul><ul id="277df3d8-ea2d-4923-ae4b-87b72ecb4a4c" class="bulleted-list"><li style="list-style-type:disc">조인 컬럼의 인덱스를 사용하지 않기 때문에 조인 컬럼의 인덱스가 없어도 사용 가능함</li></ul><ul id="915ecd8e-fc54-474b-ba9d-b26f3510337f" class="bulleted-list"><li style="list-style-type:disc">해시 함수를 이용하여 조인을 수행하기 때문에 Equi Join에서만 사용 가능함<ul id="cfef5606-bcbf-46ce-ab5d-b56146903cca" class="bulleted-list"><li style="list-style-type:circle">해시 함수를 적용한 값은 어떤 값으로 해싱될지 알 수 없으나, 해시 함수가 적용될 때 동일한 값은 항상 같은 값으로 해싱되는 것은 보장</li></ul><ul id="fa396958-3b4c-416f-b47d-121001f60728" class="bulleted-list"><li style="list-style-type:circle">그러나 큰 값은 항상 큰 값으로, 작은 값은 항상 작은 값으로 해싱된다는 보장은 없음</li></ul></li></ul><ul id="4d0f8a12-32e3-4f57-a1ed-e3f1381fc4c4" class="bulleted-list"><li style="list-style-type:disc">결과 행의 수가 적은 테이블을 선행 테이블로 사용하는 것이 좋음<ul id="adaa5369-eb8d-4217-883f-9fead7c76eec" class="bulleted-list"><li style="list-style-type:circle">생성된 해시 테이블의 크기가 메모리에 적재할 수 있는 크기보다 커지면 디스크에 해시 테이블을 저장하기 때문</li></ul><ul id="3078dc42-9a1c-4165-af96-10478c9f1744" class="bulleted-list"><li style="list-style-type:circle">만약 선행 테이블의 결과를 완전히 메모리에 저장할 수 있으면 디스크에 저장하는 작업 X</li></ul></li></ul><ul id="6e88db6f-d213-4ce0-b3dc-c2071f35f3d1" class="bulleted-list"><li style="list-style-type:disc">해시 조인 과정<figure id="801b8dd7-3b94-40c1-9ae8-747b528dfba3" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%208.png"><img style="width:598px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%208.png"/></a></figure><p id="b0d12d83-93ec-4fd9-acef-87343afd3a21" class="">① 선행 테이블에서 주어진 조건을 만족하는 행을 찾음 </p><p id="e57c6770-03e7-45eb-9770-0e759f59ff71" class="">② 선행 테이블의 조인 키를 기준으로 해쉬 함수를 적용하여 해쉬 테이블을 생성 → 조인 칼럼과 SELECT 절에서 필요로 하는 칼럼도 함께 저장됨 </p><p id="ea60682b-449a-4ab6-bea1-0aeeee4af31f" class="">① ~ ②번 작업을 선행 테이블의 조건을 만족하는 모든 행에 대해 반복 수행 </p><p id="a19f1c09-027f-419a-8774-13eaf02002dc" class="">③ 후행 테이블에서 주어진 조건을 만족하는 행을 찾음 </p><p id="81cabcc0-ceb6-4e18-a347-ecf38b8e2827" class="">④ 후행 테이블의 조인 키를 기준으로 해쉬 함수를 적용하여 해당 버킷을 찾음 → 조인 키를 이용해서 실제 조인될 데이터를 찾음 </p><p id="b1247363-f357-48c9-944c-55583f738333" class="">⑤ 조인에 성공하면 추출버퍼에 넣음 </p><p id="a86542e1-1c2f-4489-9fb3-e0e42c1f0a30" class="">③ ~ ⑤번 작업을 후행 테이블의 조건을 만족하는 모든 행에 대해서 반복 수행</p></li></ul><h3 id="95423a1f-6e85-41b9-8927-203ae85fbae9" class="">3-1. 빌드 단계</h3><ul id="e5ce54b8-95d3-4ef8-83e4-7d72430e1f25" class="bulleted-list"><li style="list-style-type:disc">작은 쪽 테이블을 읽어 해시 테이블을 생성하는 단계</li></ul><ul id="d8a1c604-f04a-4725-924f-d4a2377dc122" class="bulleted-list"><li style="list-style-type:disc">조인에 사용되는 컬럼이 인메모리 해시 테이블의 키로 사용됨<ul id="b80da73f-319c-46a4-863d-e7f5c8f8c19e" class="bulleted-list"><li style="list-style-type:circle">해당 컬럼을 해시 함수에 입력하면 반환된 값으로 해시 체인을 찾고, 그 해시 체인에 데이터를 연결함</li></ul><ul id="64d9c2ec-98a1-4409-ac5d-2b19a551b9a5" class="bulleted-list"><li style="list-style-type:circle">해시 테이블은 PGA 영역에 할당된 Hash Area에 저장하고, 만약 해시 테이블이 너무 커서 PGA(메모리)에 저장이 불가능하면 Temp 테이블스페이스(디스크)에 저장한다</li></ul><ul id="d19c3c2e-f29d-41f8-8bb2-881ab158d1c6" class="bulleted-list"><li style="list-style-type:circle">해시테이블에는 조인 키 값과 SQL에 사용한 컬럼을 모두 저장한다</li></ul></li></ul><ul id="2fca6882-1691-4626-b9f0-217b45564791" class="toggle"><li><details open=""><summary>PGA란?</summary><figure id="439a74a2-ae9c-45bb-bec6-e29478359ea8" class="image"><a href="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%209.png"><img style="width:960px" src="Join%20c9d94cba6d3040c2a10253bf348680c0/Untitled%209.png"/></a></figure></details></li></ul><h3 id="c31ff7ff-17bd-4100-bb0a-2fd9505f7be2" class="">3-2. 프로브 단계</h3><ul id="404eaa93-989e-411b-962b-30b3934c629c" class="bulleted-list"><li style="list-style-type:disc">큰 테이블을 읽어 해시 테이블을 탐색하면서 조인하는 단계</li></ul><ul id="318d13ec-451e-4b83-92a9-1fa0b16b256e" class="bulleted-list"><li style="list-style-type:disc">기준 컬럼을 해시 함수에 입력해서 반환된 값으로 해시 체인을 찾고, 그 해시 체인을 스캔해서 값이 같은 것을 찾음<ul id="e3308b5b-e2a0-4f1b-b42f-c578d13135bf" class="bulleted-list"><li style="list-style-type:circle">찾으면 조인 성공</li></ul><ul id="4803dc39-581c-48dc-945f-9c72af6461fb" class="bulleted-list"><li style="list-style-type:circle">못 찾으면 실패</li></ul><ul id="ba8c999e-c668-45ff-a71e-0516244de679" class="bulleted-list"><li style="list-style-type:circle">기본적으로 NL 조인과 같음</li></ul></li></ul><h3 id="444d848b-d59c-4068-aa3b-f49465c8e7aa" class="">3-3. 대용량 build input 처리</h3><ul id="a4347378-2587-4955-a25a-0c39861d40d5" class="bulleted-list"><li style="list-style-type:disc">조인하려는 두 개의 테이블이 모두 대용량으로 인메모리 해시 조인이 불가능한 경우 divide &amp; conquer 방식을 사용한다</li></ul><ul id="f53a192b-5a88-49a5-a7d2-91bc7cd76057" class="bulleted-list"><li style="list-style-type:disc">divide (파티션 단계)<ul id="e0df63bf-fbc0-4ff1-ba99-5df3a19288da" class="bulleted-list"><li style="list-style-type:circle">조인 대상 집합의 조인 컬럼에 해시 함수를 적용하고, 반환된 해시 값에 따라 동적으로 파티셔닝한다</li></ul><ul id="787617c7-c518-4338-9b14-37a7c8b15d3c" class="bulleted-list"><li style="list-style-type:circle">독립적으로 처리할 수 있는 여러개의 작은 서브집합으로 분할하여 파티션을 생성하는 단계</li></ul><ul id="dd270a5a-512e-4777-9607-a276c35732f4" class="bulleted-list"><li style="list-style-type:circle">양쪽 집합을 읽어 디스크에 저장해야 하므로 인메모리 해시 조인보다 성능이 떨어진다</li></ul></li></ul><ul id="a3de6fab-6014-49bf-ac0c-bfa6a85011d5" class="bulleted-list"><li style="list-style-type:disc">conquer (조인 단계) <ul id="ad2719b3-bc4f-411c-8c2e-a690af20bf01" class="bulleted-list"><li style="list-style-type:circle">파티션 단계에서 만든 pair 에 대해 하나씩 조인 수행</li></ul><ul id="90afad82-05cd-4362-babf-a15bc97eea14" class="bulleted-list"><li style="list-style-type:circle">이 때 두 개의 파티션 중 더 작은 쪽이 build input, 큰 쪽이 probe input 으로 결정됨 (테이블의 크기와는 무관)</li></ul><ul id="55f857d5-4932-4a8f-bbd2-fda03c0ced26" class="bulleted-list"><li style="list-style-type:circle">build input 으로 해시 테이블을 생성하고, 반대쪽 파티션 row를 하나씩 읽으면서 해시 테이블을 탐색</li></ul></li></ul><p id="11135a26-70b1-45c9-af2f-3683255f44a3" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
